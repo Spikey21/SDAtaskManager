@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{%block title%}
+Create task
+{% endblock title%}
+
+{% block content %}
+
+<h1>Create task</h1>
+
+{% if create_message %}
+{{create_message}}
+{% endif %}
+
+<form action="{% url 'create' %}" method="post">
+    
+    {{form}}
+
+    {% csrf_token %}
+    <button type="submit">Create Task</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{%block title%}
+Tasks
+{% endblock title%}
+
+{% block content %}
+
+{% if current%}
+<h1>Current</h1>
+
+{% for task in current %}
+
+<a href="{% url 'detail' task.id %}">
+    <h2>{{task.title}}</h2>
+</a>
+{% endfor %}
+
+{% endif %}
+
+{% if completed %}
+<h1>Completed</h1>
+
+{% for task in completed %}
+
+<a href="{% url 'detail' task.id %}">
+    <h2>{{task.title}}</h2>
+</a>
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

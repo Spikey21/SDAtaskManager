@@ -1,1 +1,30 @@
+{% extends 'base.html' %}
+
+
+{%block title%}
+Register
+{% endblock title%}
+
+{% block content %}
+
 <h1>register</h1>
+{% if message %}
+<p>{{message}}</p>
+{% endif %}
+
+{% if passwordErrors %}
+    <h5>Invalid password:</h5>
+    {% for passError in passwordErrors%}
+    <ul>
+        {{passError}}
+    </ul>
+    {% endfor %}
+{% endif %}
+<form method="post" action="{% url 'register' %}"> 
+{{form}}
+{% csrf_token %}
+<button type="submit">Register</button>
+
+</form>
+
+{% endblock %}

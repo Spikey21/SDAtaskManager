@@ -10,10 +10,14 @@ Tasks
 {% if current%}
 <h1>Current</h1>
 
+{% comment %}
+    Aktualne taski
+{% endcomment %}
+
 {% for task in current %}
 
 <a href="{% url 'detail' task.id %}">
-    <h2>{{task.title}}</h2>
+    <h2>{{task.title|upper|escape}}</h2>
 </a>
 {% endfor %}
 
@@ -22,10 +26,14 @@ Tasks
 {% if completed %}
 <h1>Completed</h1>
 
+{% comment %}
+    Ukończone taski
+{% endcomment %}
+
 {% for task in completed %}
 
 <a href="{% url 'detail' task.id %}">
-    <h2>{{task.title}}</h2>
+    <h2>{{task.title|upper}}</h2>
 </a>
 
 {% endfor %}

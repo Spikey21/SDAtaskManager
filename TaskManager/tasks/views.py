@@ -1,11 +1,13 @@
 import datetime
+from logging import getLogger
+
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+LOGGER = getLogger()
 
 def home(request):
 
@@ -29,7 +31,7 @@ def create(request):
             task.save()
             return redirect('tasks')
         else:
-            error = 'Something went wrong'
+            error = 'User provided invalid data.'
             return render(request, 'create.html',{'create_message':error, 'form':TaskForm()})
 
 @login_required        

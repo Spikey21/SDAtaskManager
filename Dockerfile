@@ -19,4 +19,3 @@ ENV PATH="/py/bin:$PATH"
 
 USER app
 
-ENTRYPOINT ["top", "-b"]

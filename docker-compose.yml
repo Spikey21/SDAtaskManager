@@ -12,6 +12,7 @@ services:
       - 8000:8000
     volumes:
       - ./TaskManager:/TaskManager
+      - ./data/web:/vol/web
     environment:
       - SECRET_KEY=DevSecretKey
       - DEBUG=1
